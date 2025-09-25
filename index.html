@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DevXNews</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>📰 DevXNews</h1>
-    <p>Enter a city or country name, or leave blank for global news</p>
-    <input type="text" id="searchInput" placeholder="e.g. New York, India">
-    <button onclick="getNews()">Get News</button>
-    <div id="newsContainer"></div>
+    <header>
+      <h1>DevXNews</h1>
+      <p>Search news by city, country, or get global headlines</p>
+    </header>
+
+    <div class="search-box">
+      <input type="text" id="queryInput" placeholder="e.g., London, Japan, or leave blank for top headlines" />
+      <button id="searchBtn">Search News</button>
+    </div>
+
+    <div id="message" class="message hidden"></div>
+
+    <div id="newsContainer" class="news-container"></div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
