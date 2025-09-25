@@ -1,13 +1,14 @@
 async function getNews() {
   const query = document.getElementById('searchInput').value.trim();
-  const apiKey = 'bd256f217a2047a88dbf345af8bbd753' ; // ⛔ Replace this with your actual key from https://newsapi.org
+  const apiKey = 'bd256f217a2047a88dbf345af8bbd753';
+  const proxy = 'https://cors-anywhere.herokuapp.com/';
 
-  let url = '';
+  let url;
 
   if (query) {
-    url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=publishedAt&pageSize=5&apiKey=${bd256f217a2047a88dbf345af8bbd753}`;
+    url = `${proxy}https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=publishedAt&pageSize=5&language=en&apiKey=${apiKey}`;
   } else {
-    url = `https://newsapi.org/v2/top-headlines?language=en&pageSize=5&apiKey=${bd256f217a2047a88dbf345af8bbd753}`;
+    url = `${proxy}https://newsapi.org/v2/top-headlines?country=us&pageSize=5&apiKey=${apiKey}`;
   }
 
   try {
@@ -16,6 +17,11 @@ async function getNews() {
 
     const newsContainer = document.getElementById('newsContainer');
     newsContainer.innerHTML = '';
+
+    if (data.status !== "ok") {
+      newsContainer.innerHTML = `<p>Error: ${data.message}</p>`;
+      return;
+    }
 
     if (data.articles && data.articles.length > 0) {
       data.articles.forEach(article => {
@@ -29,7 +35,7 @@ async function getNews() {
         newsContainer.appendChild(newsItem);
       });
     } else {
-      newsContainer.innerHTML = '<p>No news found.</p>';
+      newsContainer.innerHTML = '<p>No news found. Try another city or topic.</p>';
     }
   } catch (error) {
     console.error('Error:', error);
