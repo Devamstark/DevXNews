@@ -1,12 +1,12 @@
 async function getNews() {
   const query = document.getElementById('searchInput').value.trim();
-  const apiKey = 'bd256f217a2047a88dbf345af8bbd753';
+  const apiKey = 'bd256f217a2047a88dbf345af8bbd753';  // Your NewsAPI key
   const proxy = 'https://cors-anywhere.herokuapp.com/';
 
   let url;
 
   if (query) {
-    url = `${proxy}https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=publishedAt&pageSize=5&language=en&apiKey=${apiKey}`;
+    url = `${proxy}https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=en&sortBy=publishedAt&pageSize=5&apiKey=${apiKey}`;
   } else {
     url = `${proxy}https://newsapi.org/v2/top-headlines?country=us&pageSize=5&apiKey=${apiKey}`;
   }
@@ -18,7 +18,7 @@ async function getNews() {
     const newsContainer = document.getElementById('newsContainer');
     newsContainer.innerHTML = '';
 
-    if (data.status !== "ok") {
+    if (data.status !== 'ok') {
       newsContainer.innerHTML = `<p>Error: ${data.message}</p>`;
       return;
     }
