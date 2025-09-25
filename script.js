@@ -5,9 +5,9 @@ async function getNews() {
   let url = '';
 
   if (query) {
-    url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=publishedAt&pageSize=5&apiKey=${apiKey}`;
+    url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=publishedAt&pageSize=5&apiKey=${bd256f217a2047a88dbf345af8bbd753}`;
   } else {
-    url = `https://newsapi.org/v2/top-headlines?language=en&pageSize=5&apiKey=${apiKey}`;
+    url = `https://newsapi.org/v2/top-headlines?language=en&pageSize=5&apiKey=${bd256f217a2047a88dbf345af8bbd753}`;
   }
 
   try {
