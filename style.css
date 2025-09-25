@@ -1,44 +1,126 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  text-align: center;
-  padding: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
+  max-width: 900px;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
-input {
-  width: 70%;
-  padding: 10px;
-  margin: 10px 0;
-  font-size: 16px;
+header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
+header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+
+header p {
+  color: #7f8c8d;
+  margin-top: 8px;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#queryInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#searchBtn {
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+#searchBtn:hover {
+  background-color: #2980b9;
+}
+
+.message {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.message.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.message.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.hidden {
+  display: none;
 }
 
 .news-item {
-  text-align: left;
-  margin-top: 20px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .news-item h3 {
-  color: #007BFF;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.news-item p {
+  color: #555;
+  margin-bottom: 12px;
 }
 
 .news-item a {
-  color: #0056b3;
+  color: #3498db;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .search-box {
+    flex-direction: column;
+  }
+
+  #queryInput,
+  #searchBtn {
+    width: 100%;
+  }
 }
