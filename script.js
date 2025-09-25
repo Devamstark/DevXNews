@@ -1,6 +1,6 @@
 async function getNews() {
   const query = document.getElementById('searchInput').value.trim();
-  const apiKey = bd256f217a2047a88dbf345af8bbd753 ; // ⛔ Replace this with your actual key from https://newsapi.org
+  const apiKey = 'bd256f217a2047a88dbf345af8bbd753' ; // ⛔ Replace this with your actual key from https://newsapi.org
 
   let url = '';
 
